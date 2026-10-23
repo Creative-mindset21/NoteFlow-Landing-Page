@@ -1,1 +1,73 @@
+/* Google Fonts Linking */
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
 @import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary-50: #ecfcfd;
+  --color-primary-75: #dafafa;
+  --color-primary-500: #44e5e7;
+  --color-primary-1300: #0e2e2e;
+  --color-primary-1400: #071717;
+}
+
+@layer base {
+  body {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+
+@layer components {
+  .logo {
+    @apply flex items-center gap-4;
+  }
+
+  .nav {
+    @apply /* Small Devices */ 
+          fixed top-4 right-4 h-[90vh] w-72 max-w-[calc(100vw-2rem)] flex flex-col items-start space-y-12 md:space-y-20 bg-primary-1400 text-primary-50 py-8 px-6 rounded-2xl z-50 md:w-100 transition-transform duration-300 ease-in-out
+
+           /* Large Devices */
+           lg:static lg:flex lg:right-auto lg:top-auto lg:h-auto lg:w-auto lg:flex-row lg:bg-transparent lg:items-center lg:py-0 lg:px-0 lg:text-black lg:rounded-none lg:space-y-0 lg:translate-x-0;
+
+    .close-btn {
+      @apply flex items-center justify-center cursor-pointer p-1 border-2 border-primary-75 rounded-sm lg:hidden;
+    }
+
+    .nav-links {
+      @apply /* Small Devices */ 
+            flex flex-col space-y-6 md:space-y-12
+
+            /* Large Devices */
+            lg:flex-row lg:space-y-0 lg:gap-6;
+    }
+  }
+}
+
+/* ! UTILITIES */
+@utility box {
+  @apply w-full max-w-310 mx-auto px-8;
+}
+
+@utility btn {
+  @apply bg-transparent border-2 border-primary-50 px-8 py-2 rounded-[999px] w-full lg:w-auto;
+
+  &.btn-secondary {
+    @apply bg-primary-500 border-primary-500 text-primary-1300;
+  }
+}
+
+@utility blur-background {
+  @apply fixed inset-0 bg-black/50 z-40 backdrop-blur-sm transition-opacity duration-300 lg:hidden;
+}
