@@ -7,15 +7,54 @@
   /* Colors */
   --color-primary-50: #ecfcfd;
   --color-primary-75: #dafafa;
+  --color-primary-100: #c7f7f8;
   --color-primary-500: #44e5e7;
   --color-primary-1300: #0e2e2e;
   --color-primary-1400: #071717;
+  --color-linear-1: #061212;
+  --color-linear-2: #0e2e2e;
+
+  /* Font Size */
+  --text-h1: clamp(1.875rem, 1.5rem + 1.8vw, 3.5rem);
+  --text-h2: clamp(1.675rem, 1.5rem + 1.8vw, 3rem);
+  --text-h3: clamp(1.2rem, 1.5rem + 1.8vw, 1.7rem);
+
+  /* Animation */
+  @keyframes companyMove {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  --animate-companyMove: companyMove infinite 25s linear;
 }
 
 @layer base {
   body {
     position: relative;
     font-family: "Poppins", sans-serif;
+    color: var(--color-primary-50);
+    width: 100%;
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, var(--color-linear-1), var(--color-linear-2)),
+      url("./assets/Noise.webp");
+  }
+
+  h1 {
+    @apply text-h1 title-text mb-4;
+  }
+
+  h2 {
+    @apply text-h2 title-text text-center mb-16 mx-auto;
+  }
+
+  h3 {
+    @apply text-h3 mb-4 leading-8 tracking-[-2.5%];
   }
 
   header {
@@ -26,20 +65,27 @@
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
   }
 }
 
 @layer components {
+  /* !HEADER SECTION */
   .logo {
     @apply flex items-center gap-4;
   }
 
   .nav {
     @apply /* Small Devices */ 
-          fixed top-4 right-4 h-[90vh] w-72 max-w-[calc(100vw-2rem)] flex flex-col items-start space-y-12 md:space-y-20 bg-primary-1400 text-primary-50 py-8 px-6 rounded-2xl z-50 md:w-100 transition-transform duration-300 ease-in-out
+          fixed top-4 right-4 h-[90vh] w-72 max-w-[calc(100vw-2rem)] flex flex-col items-start space-y-12 md:space-y-20 text-primary-50 py-8 px-6 rounded-2xl z-50 md:w-100 transition-transform duration-300 ease-in-out
 
            /* Large Devices */
-           lg:static lg:flex lg:right-auto lg:top-auto lg:h-auto lg:w-auto lg:flex-row lg:bg-transparent lg:items-center lg:py-0 lg:px-0 lg:text-black lg:rounded-none lg:space-y-0 lg:translate-x-0;
+           lg:static lg:flex lg:right-auto lg:top-auto lg:h-auto lg:w-auto lg:flex-row lg:bg-transparent lg:items-center lg:py-0 lg:px-0 lg:rounded-none lg:space-y-0;
 
     .close-btn {
       @apply flex items-center justify-center cursor-pointer p-1 border-2 border-primary-75 rounded-sm lg:hidden;
@@ -53,6 +99,15 @@
             lg:flex-row lg:space-y-0 lg:gap-6;
     }
   }
+
+  /* !HERO SECTION */
+  .hero {
+    @apply box pt-30 flex flex-col gap-12 lg:flex-row lg:items-center;
+
+    p {
+      @apply text-primary-100 font-light leading-8 mb-8 lg:max-w-90;
+    }
+  }
 }
 
 /* ! UTILITIES */
@@ -61,7 +116,7 @@
 }
 
 @utility btn {
-  @apply bg-transparent border-2 border-primary-50 px-8 py-2 rounded-[999px] w-full lg:w-auto;
+  @apply bg-transparent border-2 border-primary-50 px-8 py-4 rounded-[999px] w-full lg:w-auto cursor-pointer;
 
   &.btn-secondary {
     @apply bg-primary-500 border-primary-500 text-primary-1300;
@@ -70,4 +125,16 @@
 
 @utility blur-background {
   @apply fixed inset-0 bg-black/50 z-40 backdrop-blur-sm transition-opacity duration-300 lg:hidden;
+}
+
+@utility btn-glow {
+  box-shadow: 0 0 25px rgba(68, 229, 231, 0.3);
+}
+
+@utility text-glow {
+  text-shadow: 0 0 25px rgba(68, 229, 231, 0.3);
+}
+
+@utility title-text {
+  @apply text-primary-50 leading-12 font-semibold tracking-[-5%] max-w-175 lg:leading-15;
 }
