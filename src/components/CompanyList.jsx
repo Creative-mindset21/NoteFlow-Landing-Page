@@ -1,6 +1,6 @@
 const CompanyList = ({ companyList }) => {
   return (
-    <li key={companyList.alt}>
+    <li>
       <img
         src={companyList.imgSrc}
         alt={`Logo of ${companyList.alt}`}

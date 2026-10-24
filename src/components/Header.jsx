@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { PiCirclesFour } from "react-icons/pi";
 import { IoClose } from "react-icons/io5";
 import { useEffect, useState } from "react";
@@ -36,71 +36,73 @@ const Header = () => {
   return (
     <>
       <header
-        className={`${isScrolled ? "bg-primary-1400" : "bg-transparent"} box`}
+        className={`${isScrolled ? "bg-primary-1400" : "bg-transparent"}`}
       >
-        {/* Logo */}
-        <div className="logo">
-          <img src={logo} alt="Noteflow logo" />
-          <span>Noteflow</span>
-        </div>
+        <div className="box">
+          {/* Logo */}
+          <div className="logo">
+            <img src={logo} alt="Noteflow logo" />
+            <span>Noteflow</span>
+          </div>
 
-        {/* Navigation Links */}
-        <nav
-          style={{
-            backgroundImage: `url(${noise})`,
-          }}
-          className={`nav bg-primary-1400 bg-blend-overlay ${isOpen ? "translate-x-0" : "translate-x-[120%]"} lg:translate-x-0`}
-        >
-          <button
-            className="close-btn"
-            aria-label="Close Menu"
-            onClick={closeMenu}
+          {/* Navigation Links */}
+          <nav
+            style={{
+              backgroundImage: `url(${noise})`,
+            }}
+            className={`nav bg-primary-1400 bg-blend-overlay ${isOpen ? "translate-x-0" : "translate-x-[120%]"} lg:translate-x-0`}
           >
-            <IoClose size={24} />
-          </button>
+            <button
+              className="close-btn"
+              aria-label="Close Menu"
+              onClick={closeMenu}
+            >
+              <IoClose size={24} />
+            </button>
 
-          <ul className="nav-links">
-            {navLinks.map(({ name, to, id }) => (
-              <li key={id}>
-                <NavLink
-                  to={to}
-                  className={({ isActive }) =>
-                    `leading-8 text-lg md:text-xl transition-opacity hover:opacity-80 ${
-                      isActive
-                        ? "text-primary-500 font-semibold"
-                        : "font-light text-primary-50"
-                    }`
-                  }
-                >
-                  {name}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+            <ul className="nav-links">
+              {navLinks.map(({ name, to, id }) => (
+                <li key={id}>
+                  <a
+                    href={to}
+                    className={({ isActive }) =>
+                      `leading-8 text-lg md:text-xl transition-opacity hover:opacity-80 ${
+                        isActive
+                          ? "text-primary-500 font-semibold"
+                          : "font-light text-primary-50"
+                      }`
+                    }
+                  >
+                    {name}
+                  </a>
+                </li>
+              ))}
+            </ul>
 
-          {/* Only shown on small devices */}
-          <div className="flex flex-col items-center w-full mt-auto text-center gap-6 lg:hidden">
+            {/* Only shown on small devices */}
+            <div className="flex flex-col items-center w-full mt-auto text-center gap-6 lg:hidden">
+              <button className="btn">Login</button>
+              <button className="btn btn-secondary">Get Started</button>
+            </div>
+          </nav>
+
+          {/* Blur Background */}
+          <div
+            className={`blur-background ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+            onClick={closeMenu}
+            aria-hidden="true"
+          ></div>
+
+          {/* Header Button */}
+          <div className="items-center gap-4 hidden lg:flex">
             <button className="btn">Login</button>
             <button className="btn btn-secondary">Get Started</button>
           </div>
-        </nav>
 
-        {/* Blur Background */}
-        <div
-          className={`blur-background ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-          onClick={closeMenu}
-          aria-hidden="true"
-        ></div>
-
-        {/* Header Button */}
-        <div className="items-center gap-4 hidden lg:flex">
-          <button className="btn">Login</button>
-          <button className="btn btn-secondary">Get Started</button>
+          <button className="cursor-pointer lg:hidden" onClick={openMenu}>
+            <PiCirclesFour size={30} />
+          </button>
         </div>
-
-        <button className="cursor-pointer lg:hidden" onClick={openMenu}>
-          <PiCirclesFour size={30} />
-        </button>
       </header>
 
       <main>

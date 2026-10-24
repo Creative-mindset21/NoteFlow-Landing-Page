@@ -4,6 +4,7 @@ import Trusted from "./Trusted";
 import heroImage from "../assets/graphics/HeroGraphic.webp";
 import Company from "./Company";
 import About from "./About";
+import Faq from "./Faq";
 
 const Hero = () => {
   return (
@@ -29,6 +30,7 @@ const Hero = () => {
       <Trusted />
       <Company />
       <About />
+      <Faq />
     </>
   );
 };

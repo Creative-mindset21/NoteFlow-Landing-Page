@@ -3,7 +3,7 @@ import CompanyList from "./CompanyList";
 
 const Company = () => {
   return (
-    <div className="box mb-20 overflow-hidden">
+    <section className="box mb-20 overflow-hidden w-full h-full">
       <p className="text-center mb-8">
         Organizations powered by <span className="font-semibold">NoteFlow</span>
       </p>
@@ -13,8 +13,8 @@ const Company = () => {
           className="flex items-center gap-8 animate-companyMove shrink-0 pr-8 group-hover:[animation-play-state:paused]"
           aria-hidden="true"
         >
-          {companyList.map((company) => (
-            <CompanyList companyList={company} />
+          {companyList.map((company, id) => (
+            <CompanyList companyList={company} key={id} />
           ))}
         </ul>
 
@@ -22,12 +22,12 @@ const Company = () => {
           className="flex items-center gap-8 animate-companyMove shrink-0 pr-8 group-hover:[animation-play-state:paused]"
           aria-hidden="true"
         >
-          {companyList.map((company) => (
-            <CompanyList companyList={company} />
+          {companyList.map((company, id) => (
+            <CompanyList key={id} companyList={company} />
           ))}
         </ul>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -2,13 +2,14 @@ import { trustedImgs } from "../util/data";
 
 const Trusted = () => {
   return (
-    <div className="py-20 box flex items-center gap-4">
+    <section className="py-20 box flex items-center gap-4">
       <div className="flex items-center ">
         {trustedImgs.map((imgs) => (
           <img
             src={imgs}
             alt=""
             className="size-12 rounded-[99%] -ml-4 border-2 border-primary-100"
+            key={imgs}
           />
         ))}
       </div>
@@ -17,7 +18,7 @@ const Trusted = () => {
         Trusted by <span className="text-primary-500 font-bold">12,653+</span>{" "}
         productivity junkies
       </p>
-    </div>
+    </section>
   );
 };
 

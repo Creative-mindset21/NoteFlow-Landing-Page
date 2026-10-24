@@ -1,3 +1,8 @@
+* {
+  scroll-behavior: smooth;
+  scroll-padding-top: 10rem;
+}
+
 /* Google Fonts Linking */
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
@@ -58,14 +63,19 @@
   }
 
   header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     height: 6.5rem;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    display: flex;
+    align-items: center;
+
+    div.box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   img {
