@@ -1,4 +1,4 @@
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { testimonials } from "../util/data";
 import TestimonialCard from "./TestimonialCard";
 import { useEffect, useState } from "react";
@@ -28,8 +28,17 @@ const Testimonials = () => {
   }, []);
 
   const handleClick = () => {
-    const increment = window.innerWidth >= 1024 ? 3 : 2;
-    setVisibleCount((prev) => prev + increment);
+    const isLargeScreen = window.innerWidth >= 1024;
+    const initial = getInitialCount();
+
+    setVisibleCount((prev) => {
+      if (prev >= testimonials.length) {
+        return initial;
+      }
+
+      const nextCount = isLargeScreen ? testimonials.length : prev + 2;
+      return Math.min(nextCount, testimonials.length);
+    });
   };
 
   const newTestimonialArr = testimonials.slice(0, visibleCount);
@@ -56,7 +65,12 @@ const Testimonials = () => {
         className="btn w-auto mx-auto flex items-center gap-4 my-8 transition-all duration-300 hover:btn-glow"
         onClick={handleClick}
       >
-        Show More <FaChevronDown />
+        Show {visibleCount >= testimonials.length ? "Less" : "More"}
+        {visibleCount >= testimonials.length ? (
+          <FaChevronUp />
+        ) : (
+          <FaChevronDown />
+        )}
       </button>
     </section>
   );
