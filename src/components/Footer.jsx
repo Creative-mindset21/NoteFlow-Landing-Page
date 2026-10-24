@@ -12,14 +12,14 @@ const Footer = () => {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-x-12 w-full lg:w-auto">
         {footerLinks.map((footer) => (
-          <div className="space-y-8">
+          <div className="space-y-8" key={footer.id}>
             <h4 className="font-semibold text-lg leading-8 tracking-[-2.5%]">
               {footer.title}
             </h4>
 
             <ul className="space-y-4">
-              {footer.links.map((link) => (
-                <FooterLinks {...link} />
+              {footer.links.map((link, i) => (
+                <FooterLinks key={i} {...link} />
               ))}
             </ul>
           </div>

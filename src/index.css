@@ -142,6 +142,16 @@
       }
     }
   }
+
+  .form {
+    & > label {
+      @apply leading-8 text-primary-50 text-lg font-extralight;
+    }
+
+    & > input {
+      @apply bg-primary-75 w-full px-6 py-3.5 rounded-full mb-4 mt-2 text-base text-[#061212] leading-8 font-light;
+    }
+  }
 }
 
 /* ! UTILITIES */

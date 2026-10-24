@@ -1,15 +1,18 @@
 import { Outlet } from "react-router-dom";
 import { PiCirclesFour } from "react-icons/pi";
 import { IoClose } from "react-icons/io5";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import logo from "../assets/logo.svg";
 import noise from "../assets/Noise.webp";
 import { navLinks } from "../util/data";
+import { AppContext } from "../App";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const { openLogin } = useContext(AppContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,7 +84,16 @@ const Header = () => {
 
             {/* Only shown on small devices */}
             <div className="flex flex-col items-center w-full mt-auto text-center gap-6 lg:hidden">
-              <button className="btn">Login</button>
+              <button
+                className="btn"
+                onClick={() => {
+                  openLogin();
+                  setIsOpen(false);
+                }}
+              >
+                Login
+              </button>
+
               <button className="btn btn-secondary">Get Started</button>
             </div>
           </nav>
@@ -95,7 +107,16 @@ const Header = () => {
 
           {/* Header Button */}
           <div className="items-center gap-4 hidden lg:flex">
-            <button className="btn">Login</button>
+            <button
+              className="btn"
+              onClick={() => {
+                openLogin();
+                setIsOpen(false);
+              }}
+            >
+              Login
+            </button>
+
             <button className="btn btn-secondary">Get Started</button>
           </div>
 

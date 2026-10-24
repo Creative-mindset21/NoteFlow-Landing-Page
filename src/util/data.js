@@ -414,6 +414,7 @@ export const testimonials = [
 
 export const footerLinks = [
   {
+    id: 0,
     title: "Home",
     links: [
       { label: "Companies", href: "#companies" },
@@ -423,6 +424,7 @@ export const footerLinks = [
     ],
   },
   {
+    id: 1,
     title: "Pricing",
     links: [
       { label: "Compare Plans", href: "#pricing" },
@@ -432,6 +434,7 @@ export const footerLinks = [
     ],
   },
   {
+    id: 2,
     title: "About",
     links: [
       { label: "Our Story", href: "#about" },
@@ -441,6 +444,7 @@ export const footerLinks = [
     ],
   },
   {
+    id: 3,
     title: "Community",
     links: [
       { label: "Join the Forum", href: "#forum" },

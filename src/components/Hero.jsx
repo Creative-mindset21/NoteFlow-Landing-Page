@@ -7,6 +7,7 @@ import About from "./About";
 import Faq from "./Faq";
 import Testimonials from "./Testimonials";
 import Footer from "./Footer";
+import Login from "./Login";
 
 const Hero = () => {
   return (
@@ -35,6 +36,7 @@ const Hero = () => {
       <Faq />
       <Testimonials />
       <Footer />
+      <Login />
     </>
   );
 };
