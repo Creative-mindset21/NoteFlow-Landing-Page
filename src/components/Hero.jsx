@@ -5,6 +5,7 @@ import heroImage from "../assets/graphics/HeroGraphic.webp";
 import Company from "./Company";
 import About from "./About";
 import Faq from "./Faq";
+import Testimonials from "./Testimonials";
 
 const Hero = () => {
   return (
@@ -31,6 +32,7 @@ const Hero = () => {
       <Company />
       <About />
       <Faq />
+      <Testimonials />
     </>
   );
 };
