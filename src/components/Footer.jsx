@@ -10,7 +10,7 @@ const Footer = () => {
         NoteFlow
       </p>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-x-12">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-x-12 w-full lg:w-auto">
         {footerLinks.map((footer) => (
           <div className="space-y-8">
             <h4 className="font-semibold text-lg leading-8 tracking-[-2.5%]">
