@@ -411,3 +411,42 @@ export const testimonials = [
     image: img15,
   },
 ];
+
+export const footerLinks = [
+  {
+    title: "Home",
+    links: [
+      { label: "Companies", href: "#companies" },
+      { label: "Features", href: "#features" },
+      { label: "FAQ", href: "#faq" },
+      { label: "Testimonials", href: "#testimonials" },
+    ],
+  },
+  {
+    title: "Pricing",
+    links: [
+      { label: "Compare Plans", href: "#pricing" },
+      { label: "Pricing FAQs", href: "#pricing-faqs" },
+      { label: "Free Trial", href: "#free-trial" },
+      { label: "Billing & Payments", href: "#billing" },
+    ],
+  },
+  {
+    title: "About",
+    links: [
+      { label: "Our Story", href: "#about" },
+      { label: "Careers", href: "#careers" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Contact Us", href: "#contact" },
+    ],
+  },
+  {
+    title: "Community",
+    links: [
+      { label: "Join the Forum", href: "#forum" },
+      { label: "Customer Support", href: "#support" },
+      { label: "User Stories", href: "#stories" },
+      { label: "Blog & Resources", href: "/blog" },
+    ],
+  },
+];
